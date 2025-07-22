@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>我的待办事项</h1>
+        </header>
+        
+        <div class="todo-input-section">
+            <input type="text" id="todo-input" placeholder="添加新的待办事项..." maxlength="200">
+            <button id="add-btn">添加</button>
+        </div>
+        
+        <div class="todo-stats">
+            <span id="total-count">总计: 0</span>
+            <span id="completed-count">已完成: 0</span>
+            <span id="pending-count">待完成: 0</span>
+        </div>
+        
+        <div class="todo-filters">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="pending">待完成</button>
+            <button class="filter-btn" data-filter="completed">已完成</button>
+        </div>
+        
+        <div id="loading" class="loading" style="display: none;">
+            加载中...
+        </div>
+        
+        <div id="error-message" class="error-message" style="display: none;"></div>
+        
+        <ul id="todo-list" class="todo-list"></ul>
+        
+        <div id="empty-state" class="empty-state" style="display: none;">
+            <p>还没有待办事项，开始添加一些吧！</p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
